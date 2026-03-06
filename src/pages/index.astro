@@ -21,7 +21,9 @@ import { Image } from "astro:assets";
           and share stories, can the transforming power of the arts do their magic.
         </p>
       </blockquote>
-      <Image src={thirty_four} alt="Girl with phone" />
+      <div class="image">
+        <Image src={thirty_four} alt="Girl with phone" />
+      </div>
     </div>
   </header>
 </Layout>
@@ -31,32 +33,33 @@ import { Image } from "astro:assets";
     display: flex;
     flex-direction: column;
     gap: 24px;
-    
-    > p { 
-      flex: 1.5;
-      margin: 0 auto;
-      padding: 1rem;
-      line-height: 145%;
-      font-size: 20px;
-    }
-    > img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      flex: 1;
-    }
-    @media (min-width: 768px) {
+  }
+
+  .image {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .image :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  blockquote {
+    flex: 1;
+    display: flex;
+    border-top: 3px solid #130f40;
+    border-left: 3px solid #130f40;
+    background: #30336b25;
+    position: relative;
+    padding: 2rem;
+    font-size: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .row {
       flex-direction: row;
     }
   }
-
-  blockquote{
-    flex: 1;
-	border-top: 3px solid #130f40;
-	border-left: 3px solid #130f40;
-	background: #30336b25;
-	position: relative;
-		padding: 2rem;
-	font-size: 1.25rem
-}
 </style>
